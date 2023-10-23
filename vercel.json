@@ -10,5 +10,6 @@
         "src": "/(.*)",
         "dest": "sql_app/main.py"
       }
-    ]
+    ],
+    "rewrites": [{ "source": "/(.*)", "destination": "sql_app/main.py" }]
   }
