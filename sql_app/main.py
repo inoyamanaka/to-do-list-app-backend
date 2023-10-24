@@ -198,3 +198,10 @@ async def read_own_items(
 #     uvicorn.run("server.api:app", host="0.0.0.0", port=8000, reload=True)
 #     # uvicorn.run(app, host="0.0.0.0", port=8080)
 
+import uvicorn
+from os import getenv
+
+if __name__ == "__main__":
+    port = int(getenv("PORT", 8000))
+    uvicorn.run("app.api:app", host="0.0.0.0", port=port, reload=True)
+
