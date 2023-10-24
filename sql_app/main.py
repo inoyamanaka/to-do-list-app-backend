@@ -191,9 +191,17 @@ async def read_own_items(
 ):
     return [{"item_id": "Foo", "owner": current_user.username}]
 
-if __name__ == '__main__':
-    import uvicorn
-    public_url = ngrok.connect(8080).public_url
-    print(f' * Running on {public_url}')
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+# if __name__ == '__main__':
+#     import uvicorn
+#     # public_url = ngrok.connect(8080).public_url
+#     # print(f' * Running on {public_url}')
+#     uvicorn.run("server.api:app", host="0.0.0.0", port=8000, reload=True)
+#     # uvicorn.run(app, host="0.0.0.0", port=8080)
+
+import uvicorn
+from os import getenv
+
+if __name__ == "__main__":
+    port = int(getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port, reload=True)
 
