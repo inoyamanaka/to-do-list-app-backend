@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from my_package import schemas, models
+from . import schemas, models
 from passlib.context import CryptContext
 from typing import Annotated, Union
 from fastapi import Depends, FastAPI, HTTPException, status

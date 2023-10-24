@@ -2,8 +2,7 @@ from sqlalchemy.orm import Session
 
 
 # import models
-
-from sql_app.my_package import schemas, models, crud
+from sql_app.my_package import crud, models, schemas
 from sql_app.my_package.database import SessionLocal, engine
 
 from pyngrok import ngrok
