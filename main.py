@@ -1,7 +1,10 @@
 from sqlalchemy.orm import Session
 
-from my_package import schemas, crud, models
-from my_package.database import SessionLocal, engine
+
+# import models
+
+from sql_app.my_package import schemas, models
+from sql_app.my_package.database import SessionLocal, engine
 
 from pyngrok import ngrok
 import os
@@ -15,6 +18,8 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from typing_extensions import Annotated
 from pydantic import BaseModel
+
+# import schemas
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -182,14 +187,6 @@ async def update_user_me(
 
     # Mengembalikan data pengguna yang telah diperbarui
     return user
-
-
-
-@app.get("/users/me/items/")
-async def read_own_items(
-    current_user: Annotated[User, Depends(get_current_active_user)]
-):
-    return [{"item_id": "Foo", "owner": current_user.username}]
 
 if __name__ == '__main__':
     import uvicorn
