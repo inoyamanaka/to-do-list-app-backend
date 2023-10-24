@@ -2,15 +2,15 @@
   "version": 2,
     "builds": [
       {
-        "src": "/sql_app/main.py",
+        "src": "main.py",
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "sql_app/main.py"
+        "dest": "main.py"
       }
     ],
-    "rewrites": [{ "source": "/(.*)", "destination": "sql_app/main.py" }]
+    "rewrites": [{ "source": "/(.*)", "destination": "main.py" }]
   }
